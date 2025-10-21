@@ -169,8 +169,8 @@ function create_media_source(video) {
 }
 
 function build_ws_url(host, user, pass, insecure) {
-    const protocol = insecure ? "ws" : "wss";
-    return protocol + "://" + host + "/ws?user=" + user + "&pwd=" + pass;
+    const protocol = insecure ? 'ws' : 'wss';
+    return protocol + '://' + user + ':' + pass + '@' + host + '/ws';
 }
 
 function create_player_from_element(e, onready) {
