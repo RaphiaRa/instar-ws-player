@@ -46,8 +46,8 @@ class Player {
         }
     }
 
-    on_source_error(event) {
-        log_err("Media source error: " + event);
+    on_source_error(_) {
+        log_err("Media source error: This happened probably because of a decoding error. Has the correct video codec been selected?");
     }
 
     on_ws_message(ev) {
