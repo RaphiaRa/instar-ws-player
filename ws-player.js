@@ -1,8 +1,6 @@
 /** ws-player INSTAR websocket player 
  */
 
-let source_buffer = null;
-
 // error log helper
 function log_err(msg) {
     console.error('instar-ws-player: ' + msg);
