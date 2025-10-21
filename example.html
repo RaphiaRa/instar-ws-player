@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>INSTAR WebSocket Player</title>
+    <style>
+        body {
+            background: #111;
+            color: #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        video {
+            width: 80%;
+            margin-top: 2em;
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>INSTAR WebSocket Player (fMP4 via MSE)</h1>
+    <video class="instar-ws" host="192.168.0.7:80" user="viewer" pass="viewer" venc="h264" substream="12" insecure
+        controls autoplay muted></video>
+    <script type="module" src="./ws-player.js"></script>
+</body>
+
+</html>
