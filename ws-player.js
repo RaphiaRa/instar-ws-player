@@ -149,16 +149,16 @@ function create_media_source(video) {
         log_err("MediaSource API is not available in this browser.");
         return null;
     }
-    const noaudio = video.getAttribute('noaudio');
+    const noaudio = video.getAttribute('noaudio') !== null;
     const venc = video.getAttribute('venc');
     const codecToVideoMIME = {
-        'h264hp': 'avc1.64001E',
-        'h264mp': 'avc1.4d002a',
-        'h264bp': 'avc1.4D001E',
-        'h265a': 'hev1.2.4.L120.B0',
+        'h264hp': 'avc1.640033',
+        'h264mp': 'avc1.avc1.4d4033',
+        'h264bp': 'avc1.42e033',
+        'h265a': 'hev1.1.6.L153.B0',
     };
     let mime = 'video/mp4; codecs="'
-    mime += codecToVideoMIME[venc] ?? 'avc1.4D001E';
+    mime += codecToVideoMIME[venc] ?? 'avc1.42e033';
     if (!noaudio) {
         mime += ', mp4a.40.2';
     }
