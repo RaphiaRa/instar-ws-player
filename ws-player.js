@@ -139,8 +139,14 @@ class Player {
 };
 
 function create_media_source(video) {
-    if (!window.MediaSource) {
-        log_err("No Media Source API available");
+    let MS = null;
+    if (window.MediaSource) {
+        MS = window.MediaSource;
+    } else if (window.ManagedMediaSource) {
+        MS = window.ManagedMediaSource;
+    }
+    if (!MS) {
+        log_err("MediaSource API is not available in this browser.");
         return null;
     }
     const noaudio = video.getAttribute('noaudio');
@@ -157,10 +163,10 @@ function create_media_source(video) {
         mime += ', mp4a.40.2';
     }
     mime += '"';
-    if (!MediaSource.isTypeSupported(mime)) {
+    if (!MS.isTypeSupported(mime)) {
         log_err("MIME type not supported: " + mime);
     }
-    const ms = new MediaSource();
+    const ms = new MS();
     if (video.src) {
         URL.revokeObjectURL(video.src);
     }
