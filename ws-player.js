@@ -182,7 +182,7 @@ function create_player_from_element(e, onready) {
     const host = e.getAttribute('host');
     const user = e.getAttribute('user');
     const pass = e.getAttribute('pass');
-    const insecure = e.getAttribute('insecure') !== undefined
+    const insecure = e.getAttribute('insecure') !== null;
     const ws_url = build_ws_url(host, user, pass, insecure);
     const WS = typeof ReconnectingWebSocket !== "undefined" ? ReconnectingWebSocket : WebSocket;
     const ws = new WS(ws_url);
